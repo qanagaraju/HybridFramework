@@ -15,6 +15,7 @@ public class CommonUtils extends BaseConfiguration {
 	public static WebElement submitbutton,xpath,submitid,signout,un;
 	
 	
+	
 public static void clickweblink(String IdentifiedBy,String locator,WebDriver driver) {
 		
 		if(IdentifiedBy.equalsIgnoreCase("id")) {
@@ -29,6 +30,10 @@ public static void clickweblink(String IdentifiedBy,String locator,WebDriver dri
 			if(xpath.isEnabled()) {
 				xpath.click();
 				System.out.println("Link Verified");
+				
+				
+				
+				
 			}
 			else
 			{
