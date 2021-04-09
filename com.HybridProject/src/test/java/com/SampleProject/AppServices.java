@@ -26,10 +26,16 @@ public class AppServices extends BaseConfiguration {
 		
 		read = new Objectrep();
 		capture=new CaptureScreenshot();
+		
 		InvokeBrowser("chrome");
 		test.log(LogStatus.INFO, "Launching brower");
+		
 		return this;
 	}
+	
+	
+	
+	
 	
 	
 	public AppServices clickHomeLink()  {
@@ -37,6 +43,8 @@ public class AppServices extends BaseConfiguration {
 		
 		try {
 		CommonUtils.clickweblink("xpath", read.getObjects().getProperty("mycontactform_samplelink"), driver);
+		
+		
 		
 			
 		test.log(LogStatus.INFO,"verify homelink");
@@ -60,6 +68,8 @@ public class AppServices extends BaseConfiguration {
 		try {
 			
 			CommonUtils.insertText("name", read.getObjects().getProperty("subject_field"),"qatrainer",driver);
+			
+			
 			String screenShotPath = capture.capturescreen(driver,"verify valid username");
 	        String screen1 = test.addScreenCapture(screenShotPath);
 	        test.log(LogStatus.INFO, "Snapshot below: "+screen1);
@@ -81,6 +91,8 @@ public class AppServices extends BaseConfiguration {
 		
 		CommonUtils.insertText("name", read.getObjects().getProperty("subject_field"),"tester",driver);
 		
+		
+		
 		return this;
 		
 		
@@ -93,6 +105,7 @@ public class AppServices extends BaseConfiguration {
 			
 						
 			CommonUtils.insertText("name", read.getObjects().getProperty("password_field"),"admin123",driver);
+			
 			String screenShotPath = capture.capturescreen(driver,"verify password");
 	        String screen2 = test.addScreenCapture(screenShotPath);
 	        test.log(LogStatus.INFO, "Snapshot below: "+screen2);
@@ -136,6 +149,7 @@ public class AppServices extends BaseConfiguration {
 		try {
 			
 			CommonUtils.clickButton("xpath", read.getObjects().getProperty("signout_button"), driver);
+			
 			String screenShotPath = capture.capturescreen(driver,"verify signoutbutton");
 	        String screen4 = test.addScreenCapture(screenShotPath);
 	        test.log(LogStatus.INFO, "Snapshot below: "+screen4);

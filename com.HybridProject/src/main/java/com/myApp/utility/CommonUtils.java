@@ -12,11 +12,13 @@ import com.app.Utilities.BaseConfiguration;
 public class CommonUtils extends BaseConfiguration {
 	
 	public static Objectrep read;
-	public static WebElement submitbutton,xpath,submitid,signout,un;
+	public static WebElement submitbutton,xpath,submitid,signout,un,checkbox;
 	
 	
 	
 public static void clickweblink(String IdentifiedBy,String locator,WebDriver driver) {
+		
+	
 		
 		if(IdentifiedBy.equalsIgnoreCase("id")) {
 			driver.findElement(By.id(locator)).click();
@@ -142,5 +144,86 @@ public static void clickweblink(String IdentifiedBy,String locator,WebDriver dri
 	}
 	
 	
-
+	
+public static void insertText1(String IdentifiedBy,String locator,String uname, WebDriver driver ) {
+		
+		read = new Objectrep();
+		
+		if(IdentifiedBy.equalsIgnoreCase("id")) {
+			driver.findElement(By.id(locator)).sendKeys(uname);
+		}
+		else if(IdentifiedBy.equalsIgnoreCase("name")) {
+			
+			
+			 driver.findElement(By.name(locator)).sendKeys(uname);;
+						
+		}
+		else if(IdentifiedBy.equalsIgnoreCase("xpath")) {
+			driver.findElement(By.xpath(locator)).sendKeys(uname);
+		}
+		else
+			if(IdentifiedBy.equalsIgnoreCase("id")) {
+				driver.findElement(By.cssSelector(locator)).sendKeys(uname);
+			}
+	}
+	
+	
+	
+	
+	
+	
+	
+	public static void clickcheckbox(String IdentifiedBy,String locator,String uname, WebDriver driver  ) {
+		
+		
+		if(IdentifiedBy.equals("id")) {
+			
+			driver.findElement(By.name(locator)).click();
+			
+		}
+		
+		else if(IdentifiedBy.equals("name")) {
+			
+			checkbox=driver.findElement(By.name(locator));
+			if(checkbox.isEnabled()) {
+				System.out.println("Checkbox available");
+				checkbox.click();
+			}
+			
+			
+			else
+			
+				if(checkbox.isSelected()) {
+					
+					checkbox.click();
+					
+					
+		}
+		else 
+			
+			if(IdentifiedBy.equals("xpath")) {
+			
+			driver.findElement(By.name(locator)).click();
+			
+		}
+		else if(IdentifiedBy.equals("cssselector")) {
+			
+			driver.findElement(By.name(locator)).click();
+			
+		}
+			
+		
+		
+	}
+	
+	}
 }
+	
+	
+	
+	
+	
+	
+	
+
+
